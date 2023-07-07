@@ -166,7 +166,7 @@ El archivo .gitignore se utiliza en Git para especificar qué archivos y directo
 
 <h3>Algunas nomenclaturas</h3>
 
-````bash
+```bash
 # Ignorar todos los archivos con la extensión .txt
 *.txt
 
@@ -178,7 +178,46 @@ important.txt
 
 # Negar la exclusión de un archivo llamado "allowed.txt"
 !allowed.txt
+```
 
+<h2 style="color: #e09e10;font-weight: 800;">git add</h2>
+Este comando se utiliza para agregar las modificaciones realizadas al index (staging area) de git, lo que significa que los cambios quedan preparados para su confirmacion (commit)
+
+<h3>Algunos usos de git add</h3>
+
+```bash
+# Agregar un archivo especifico al staging area
+$ git add index.html
+$ git add style.css
+
+# Agregar al staging area todos los archivos modificados
+$ git add .
+```
+
+<h2 style="color: #e09e10;font-weight: 800;">git commit</h2>
+El comando 'commit' se utiliza para confirmar los cambios que previamente se han agregado al staging area (usando 'git add'), esto lo que hace es confirmar una nueva instantanea del estado del proyecto al historial de cambios de git
+
+<h3>Algunos usos de git commit</h3>
+
+```bash
+# Confirmar nuevo cambio y agregar el mensaje del commit
+$ git commit -m "mensaje descriptivo del cambio"
+
+# O puedes solo ejecutar 'git commit', esto 
+# abrira el editor que tienes asociado a git para
+# escribir el mensaje del nuevo commit
+$ git commit
+
+# Supongamos que has hecho modificaciones en algunos archivos
+# Y deseas commitearlos hacer un commit
+# Pero deses una forma rapida sin tener que primero
+# hacer 'git add' y luego 'git commit -m'
+# Pues para esto existe la opcion '-am' de commit
+$ git commit -am "mensaje descriptivo"
+# el comando anterior lo que hace es ejecutar dos comandos, primero hace 'un git add'
+# luego el commit directamente
+# OJO: este comando funciona solo para archivos modificados, no para nuevos archivos
+# es decir archivos que ya tienen un historial en git
 ```
 
 </div>
