@@ -161,4 +161,24 @@ $ git clone -depth=1 <repo>
 ```
 
 
+<h2 style="color: #e09e10;font-weight: 800;">Archivo .gitignore</h2>
+El archivo .gitignore se utiliza en Git para especificar qué archivos y directorios deben ser ignorados y no incluidos en el seguimiento del repositorio. Sirve para evitar que archivos innecesarios o sensibles sean incluidos accidentalmente en el repositorio, lo que puede causar ruido, aumentar el tamaño del repositorio y comprometer la privacidad.
+
+<h3>Algunas nomenclaturas</h3>
+
+````bash
+# Ignorar todos los archivos con la extensión .txt
+*.txt
+
+# Ignorar un directorio llamado "docs" en la raíz del repositorio
+/docs
+
+# Ignorar un archivo específico llamado "important.txt"
+important.txt
+
+# Negar la exclusión de un archivo llamado "allowed.txt"
+!allowed.txt
+
+```
+
 </div>
