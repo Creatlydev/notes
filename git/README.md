@@ -129,6 +129,10 @@ $ git pull
 $ git config --global --unset alias.<nombre-alias>
 # Eliminar un alias de git, creado localmente
 $ git config --unset alias.<nombre-alias>
+
+# Eliminar una etiqueta remota
+$ git push --delete origin <nombre-etiqueta>
+$ git push --delete origin version_beta
 ```
 <i>
 En resumen los alias de git son una potente herramienta que optimiza el flujo de trabaja, ahorrando el numero de teclas pulsadas para ejecutar un comando, ya que permite crear nombres mucho mas cortos que a su vez ejecuta comandos muchos mas largos comandos repetitivos. Al usarlos te permitira programar de una forma mucho mas rapido y efeciente
@@ -218,6 +222,114 @@ $ git commit -am "mensaje descriptivo"
 # luego el commit directamente
 # OJO: este comando funciona solo para archivos modificados, no para nuevos archivos
 # es decir archivos que ya tienen un historial en git
+```
+
+
+<h2 style="color: #e09e10;font-weight: 800;">git diff</h2>
+Este comando se utiliza para mostrar las diferencias entre estados de git, por ejemplo para comparar los cambios del estado actual del repositorio con el estado que tenia en cierto commit
+
+
+<h3>Algunos usos de git diff</h3>
+
+```bash
+# Mostrar las diferencias de los archivos entre el area de preparacion
+# y el directorio de trabajo
+$ git diff
+
+# Diferencias entre commits
+$ git diff <commit1> <commit2>
+
+# Diferencias entre el directorio de trabajo (Working directory)
+# Y un commit en especifico
+$ git diff <commit>
+
+# Diferencias entre el commit mas reciente (HEAD) y el directorio de trabajo (Working directory)
+$ git diff HEAD
+
+# Diferencias entre ramas, para mostrar cambios de una rama
+# en comparacion a otra
+$ git diff <rama1> <rama2>
+
+# Mostrar diferencias entre index (Staging area) y el ultimo commit
+# se puede hacer con la opcion '--cached | --staged'
+$ git diff --staged
+$ git diff --cached
+
+# Opcion para mostrar solo los nombres de los archivos modificados
+# sin mostrar los diferencias reales '--name-only'
+$ git diff --name-only <resto_de_opciones>
+
+# Mostrar el nombre y el estado de los archivos modificados
+$ git diff --name-status <resto_de_opciones>
+
+# Mostrar la diferencias de palabras en lugar de lineas completas
+# Color verde para adiciones, y color rojo para eliminacion de palabras
+git diff --color-words <resto_de_opciones>
+
+# Mostrar un resumen estadistico de las diferencias
+$ git diff --stat
+```
+
+<h2 style="color: #e09e10;font-weight: 800;">git log</h2>
+Este comando se utiliza para visualizar el historial de commit que has realizado en el tiempo, ademas que te permite agregar opciones de formato para poder visualizar el historial de una forma mas grafica y concisa
+
+<h3>Algunos usos de git log</h3>
+
+```bash
+# El mas simple es ejecutar 'git log' sin ninguna opcion adicional
+# esto listara el historial de commit de tu repositorio git
+$ git log
+
+# '--oneline' mostrar la lista de commits en una sola linea
+# Con el hash abreviado y el mensaje descriptivo del commit
+$ git log --oneline
+
+# '--graph' te permite ver el historial en forma de grafico ASCII, 
+# Se puede visualizar de manera mas grafica las relaciones entre commits y ramas
+git log --graph
+
+# Opciones de filtracion del historial de commits
+# Filtrar los commits por autor, para ello deberas especificar
+# El nombre o correo electronico del autor
+$ git log --author="Creatlydev"
+$ git log --author="correo_de_autor"
+
+# Filtrar por mensaje de commit especifico o patron de busqueda
+git log --grep="bug fix"
+
+# Filtrar commits por fecha o un rango de fechas
+# A partir de una fecha hasta el commit actual
+$ git log --since="2023-07-04"
+# Tambien se puede incluir a partir de que hora
+$ git log --since="2023-07-04 10:30:00"
+
+# Rango de fechas, esto limitara los commits dentro del rango
+git log --since="2023-07-02" --until="2023-07-6"
+
+# Filtrar por fechas relativas
+# '2 weeks ago' : Muestra commits realizados en las ultimas dos semanas
+# '1 month ago' : Muestra commits del ultimo mes
+# '3 months ago' : Muestra commits de los ultimos 3 meses
+git log --since="1 month ago" --until="2 weeks ago"
+# El comando anterior mostrara los commit en el ultimo mes, pero no en las ultimas dos semanas
+
+# Visualizar los cambios introducidos en cada commit '--patch | -p'
+$ git log --patch
+$ git log -p
+
+# Mostrar resumen estaditistico de cada commit
+$ git log --stat
+
+# '--decorate', muestra las referencias, como ramas y etiquetas, junto a los commits en la salida
+git log --decorate
+
+# Limitar el numero de commits que se desea mostrar '-n'
+$ git log -n 5
+# El comando anterior mostrara solo los ultimos cinco commits
+
+# '--all' para mostrar todos los commits, de todas las ramas existentes
+$ git log --all
+
 ```
 
 </div>
