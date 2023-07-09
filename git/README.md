@@ -329,7 +329,52 @@ $ git log -n 5
 
 # '--all' para mostrar todos los commits, de todas las ramas existentes
 $ git log --all
+```
 
+
+<h2 style="color: #e09e10;font-weight: 800;">git checkout</h2>
+Este comando sirve para ejecutar diferentes acciones, con el se puede revisar commits anteriores, cambiar de rama e incluso crear una nueva rama y el uso mas comun de descartar cambios de un arhivos o archivos
+
+<h3>Algunos usos de git checkout</h3>
+
+```bash
+# Cambiar a una rama existente del repositorio para trabajar en ella
+$ git checkout <name-branch>
+
+# '-b' Esta opcion te permite crear una nueva rama y al mismo tiempo situarte en esa nueva rama
+$ git checkout -b <name-new-branch>
+
+# Revisar un commit especifico
+$ git checkout <hash-commit>
+# Cuando se ejecuta el comando anterior GIT se situa en un 
+# estado llamado "modo de desprendimiento" (detached HEAD state)
+# Lo que significa que ahora el no estas en una rama especifica
+# el puntero HEAD que siempre señala el ultimo commit agregado
+# Ahora apunta el commit especifico que has especificado en el comando
+# Es un estado temporal donde no podras realizar cambios directamente,
+# Este estado puede ser util para revisar versiones anteriores del respositorio
+# O experimentar, pero es recomendable crear una nueva rama a partir de ese commit en especifico
+# esto si se desea preservar los cambios y continuar trabajando en ellos, y posteriormente realizar una merge
+# con la rama principal
+
+# Para crear una nueva rama a partir de ese punto y siturate en ella al mismo tiempo
+# se puede realizar con el siguiente comando
+$ git checkout -b <name-new-branch> <hash-commit>
+
+# Cambiar rapidamente entre la rama actual y la rama anterior
+# En la que estabas trabajando
+$ git checkout -
+
+# Descartar cambios de un archivo o varios archivos
+$ git checkout -- <name-file>
+# El (__) doble guion bajo indica que lo que sigue a partir de ahi
+# son nombres de archivos y no opciones, todo lo escrito despues de los (__)
+# GIT asume que se trata del nombre de un archivo
+
+# Descartar todos los cambios realizados en los distintos archivos
+$ git checkout -- .
+# Al ejecutar el comando anterior se descartaran todos los cambios del repositorio
+# incluso los archivos que no estan rastreados por git , osea en estado (Untracking)
 ```
 
 </div>
