@@ -184,6 +184,35 @@ important.txt
 !allowed.txt
 ```
 
+<h2 style="color: #e09e10;font-weight: 800;">GIT status</h2>
+Este comando permite visualizar el estado de los archivos existentes en el repositorio
+Existen dos estados principales :
+
+```markdown
+-> Rastreados (Tracked File) : son todos los archivos que estaban en la ultima instantanea
+    Pueden estar:
+        -> Sin modificar
+        -> Modificados   (M)
+        -> Preparados    (A)
+-> No Rastreados (Untracked) : Son todos aquellos archivos que no existian en la ultima instantanea
+```
+
+<h3>Algunos usos de git status</h3>
+
+```bash
+# Ver estado de archivos
+$ git status
+
+# Ver de forma simplificada el estado de cada uno de los archivos
+$ git status -s
+# o
+$ git status --short
+
+# ?? -> Archivos sin seguimiento (Untracked File)
+# A  -> Archivos preparados para el proximo commit
+# M  -> Arhivos modificados
+```
+
 <h2 style="color: #e09e10;font-weight: 800;">git add</h2>
 Este comando se utiliza para agregar las modificaciones realizadas al index (staging area) de git, lo que significa que los cambios quedan preparados para su confirmacion (commit)
 
@@ -196,6 +225,13 @@ $ git add style.css
 
 # Agregar al staging area todos los archivos modificados
 $ git add .
+
+# Agregar archivos filtrados
+# Por ejemplo agregar todos los archivos .txt
+$ git add *.txt
+
+# Agregar todos los archivos .txt y .py y .md
+$ git add *.txt *.py *.md
 ```
 
 <h2 style="color: #e09e10;font-weight: 800;">git commit</h2>
