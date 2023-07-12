@@ -168,20 +168,52 @@ $ git clone -depth=1 <repo>
 <h2 style="color: #e09e10;font-weight: 800;">Archivo .gitignore</h2>
 El archivo .gitignore se utiliza en Git para especificar qué archivos y directorios deben ser ignorados y no incluidos en el seguimiento del repositorio. Sirve para evitar que archivos innecesarios o sensibles sean incluidos accidentalmente en el repositorio, lo que puede causar ruido, aumentar el tamaño del repositorio y comprometer la privacidad.
 
-<h3>Algunas nomenclaturas</h3>
+<h3>ejemplos de expresiones y convenciones</h3>
 
 ```bash
-# Ignorar todos los archivos con la extensión .txt
+# Ignorar todos los archivos de un tipo en especifico
 *.txt
+*.log
+*.test
 
-# Ignorar un directorio llamado "docs" en la raíz del repositorio
-/docs
+# Ignorar tipos de archivos
+# Utilizando los [] se puede especificar un grupo de tipos de archivos que deseas ignorar
+*[.txt, .docx, .xlsx]
+
+# Ignorar archivos en todos los directorios y subdirectorios con el mismo nombre
+**/archivo.log
+
+# Ignorar todos los archivos de un tipo en especifico en todos los subdirectorios
+**/*.log
+
+# Ignorar un directorio llamado "Docs" en la raíz del repositorio
+/Docs se refiere a una carpeta "Docs" en el directorio raíz del repositorio.
+
+# Ignorar un directorio llamado "Docs" en cualquier subdirectorio
+Docs/ se refiere a cualquier carpeta "Docs" en cualquier nivel de subdirectorio en el repositorio.
 
 # Ignorar un archivo específico llamado "important.txt"
 important.txt
 
-# Negar la exclusión de un archivo llamado "allowed.txt"
-!allowed.txt
+# Negar la exclusión de un archivo ene especifico "filename.txt"
+!filename.txt
+
+# Excluir subdirectorios en un directorio en especifico
+carpeta-principal/*
+!carpeta-principal/subcarpeta/
+!carpeta-principal/subcarpeta/*
+
+# Ignorar todos los archivos de un respositorio excepto un archivo en especifico
+carpeta/*
+!carpeta/archivo.txt
+
+
+---------------------------------------------------------------------------------
+# PATRONES DE COINCIDENCIA MULTIPLE
+# -> Ignorar todos lor archivos que empiezen con config seguido de un numero
+config[0-9]*
+# Esto ignorará archivos como config1.txt, config2.txt, etc.
+
 ```
 
 <h2 style="color: #e09e10;font-weight: 800;">GIT status</h2>
