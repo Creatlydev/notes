@@ -429,14 +429,19 @@ $ git checkout <hash-commit>
 # se puede realizar con el siguiente comando
 $ git checkout -b <name-new-branch> <hash-commit>
 
+# Moverse a un commit <n> commits anteriores al HEAD
+$ git checkout HEAD~<n>
+$ git checkout HEAD~2
+$ git checkout HEAD~5
+
 # Cambiar rapidamente entre la rama actual y la rama anterior
 # En la que estabas trabajando
 $ git checkout -
 
 # Descartar cambios de un archivo o varios archivos
 $ git checkout -- <name-file>
-# El (__) doble guion bajo indica que lo que sigue a partir de ahi
-# son nombres de archivos y no opciones, todo lo escrito despues de los (__)
+# El (--) doble guion bajo indica que lo que sigue a partir de ahi
+# son nombres de archivos y no opciones, todo lo escrito despues de los (--)
 # GIT asume que se trata del nombre de un archivo
 
 # Descartar todos los cambios realizados en los distintos archivos
@@ -468,6 +473,11 @@ $ git reset HEAD --
 $ git reset --soft <hash-commit>
 $ git resest --mixed <hash-commit>
 $ git reset  --hard  <hash-commit>
+
+# Realizar un reset a un commit <n> commits anteriores al HEAD
+$ git reset HEAD~<n>
+$ git reset HEAD~3
+$ git reset HEAD~1
 ```
 
 </div>
