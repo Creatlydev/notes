@@ -413,4 +413,29 @@ $ git checkout -- .
 # incluso los archivos que no estan rastreados por git , osea en estado (Untracking)
 ```
 
+<h2 style="color: #e09e10;font-weight: 800;">git reset</h2>
+Este comando se utilizar para deshacer cambios, mover ramas y para actualizar la posicion del encabezado de rama HEAD
+
+<h3>Algunos usos de git reset</h3>
+
+```bash
+# Mover la rama actual y posicion del encabezado de rama HEAD al commit especificado
+$ git reset <hash-commit>
+
+# Deshacer cambios agregados al area de preparacion (Unstage Changes)
+$ git reset HEAD --
+
+# Opciones adicionales a git reset
+* --soft  : Reset suave, mantiene los cambios desechos de los commits en el area de preparacion
+* --mixed : (Predeterminado) reset mixto, esta opcion elimina los cambios desechos de los commits del area de 
+            preparacion pero mantiene las modificaciones en el directorio de trabajo (Working Directory)
+* --hard  : Esta opcion deshace los commits y desecha los cambios tanto del area de preparacion
+            como del directorio de trabajo, pierdes las modificaciones posteriores
+            al commit que especificaste realizar el reset
+
+$ git reset --soft <hash-commit>
+$ git resest --mixed <hash-commit>
+$ git reset  --hard  <hash-commit>
+```
+
 </div>
