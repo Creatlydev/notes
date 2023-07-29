@@ -5,7 +5,7 @@
 </div>
 <hr style="background-color: #222222;">
 
-<!-- GIT INIT -->
+<!-- &GIT INIT -->
 <div style="font-family: inconsolata;"> 
 
 <h2 style="color: #e09e10;font-weight: 800;">git init</h2>
@@ -23,6 +23,7 @@ $ git init <directory>
 $ git init appNote
 ```
 
+<!-- &GIT CONFIG -->
 <h2 style="color: #e09e10;font-weight: 800;">git config</h2>
 Este comando se utiliza para definir valores de configuracion de git a nivel de un proyecto global o local
 
@@ -75,6 +76,7 @@ $ git config alias.myalias "push origin main"
 $ git config --global color.ui [false | always | auto]
 ```
 
+<!-- &ALIAS DE GIT -->
 <h2 style="color: #e09e10;font-weight: 800;">Alias de GIT</h2>
 Alias es sinonimo de "acceso rapido" . Los alias se usan para crear nombres cortos
 para comandos mas largos, no existe un comando 'git alias' como tal, sino que
@@ -130,14 +132,12 @@ $ git config --global --unset alias.<nombre-alias>
 # Eliminar un alias de git, creado localmente
 $ git config --unset alias.<nombre-alias>
 
-# Eliminar una etiqueta remota
-$ git push --delete origin <nombre-etiqueta>
-$ git push --delete origin version_beta
 ```
 <i>
 En resumen los alias de git son una potente herramienta que optimiza el flujo de trabaja, ahorrando el numero de teclas pulsadas para ejecutar un comando, ya que permite crear nombres mucho mas cortos que a su vez ejecuta comandos muchos mas largos comandos repetitivos. Al usarlos te permitira programar de una forma mucho mas rapido y efeciente
 </i>
 
+<!-- &GIT CLONE -->
 
 <h2 style="color: #e09e10;font-weight: 800;">git clone</h2>
 el comando 'clone' sirve para realizar una copia de un repositorio existente, puede ser un repositorio local como remoto, basicamente 'git clone' apunta a un repositorio existente y copia toda su estructura e historial en un directorio de tu maquina
@@ -164,6 +164,7 @@ $ git clone -depth=1 <repo>
 # te puedes ahorrar un largo tiempo de espera en la clonacion
 ```
 
+<!-- &GITIGNORE -->
 
 <h2 style="color: #e09e10;font-weight: 800;">Archivo .gitignore</h2>
 El archivo .gitignore se utiliza en Git para especificar qué archivos y directorios deben ser ignorados y no incluidos en el seguimiento del repositorio. Sirve para evitar que archivos innecesarios o sensibles sean incluidos accidentalmente en el repositorio, lo que puede causar ruido, aumentar el tamaño del repositorio y comprometer la privacidad.
@@ -216,6 +217,8 @@ config[0-9]*
 
 ```
 
+<!-- &GIT STATUS -->
+
 <h2 style="color: #e09e10;font-weight: 800;">GIT status</h2>
 Este comando permite visualizar el estado de los archivos existentes en el repositorio
 Existen dos estados principales :
@@ -248,6 +251,8 @@ $ git status --short
 <h2 style="color: #e09e10;font-weight: 800;">git add</h2>
 Este comando se utiliza para agregar las modificaciones realizadas al index (staging area) de git, lo que significa que los cambios quedan preparados para su confirmacion (commit)
 
+<!-- &GIT ADD -->
+
 <h3>Algunos usos de git add</h3>
 
 ```bash
@@ -265,6 +270,8 @@ $ git add *.txt
 # Agregar todos los archivos .txt y .py y .md
 $ git add *.txt *.py *.md
 ```
+
+<!-- &GIT COMMIT -->
 
 <h2 style="color: #e09e10;font-weight: 800;">git commit</h2>
 El comando 'commit' se utiliza para confirmar los cambios que previamente se han agregado al staging area (usando 'git add'), esto lo que hace es confirmar una nueva instantanea del estado del proyecto al historial de cambios de git
@@ -296,6 +303,7 @@ $ git commit -am "mensaje descriptivo"
 <h2 style="color: #e09e10;font-weight: 800;">git diff</h2>
 Este comando se utiliza para mostrar las diferencias entre estados de git, por ejemplo para comparar los cambios del estado actual del repositorio con el estado que tenia en cierto commit
 
+<!-- &GIT DIFF -->
 
 <h3>Algunos usos de git diff</h3>
 
@@ -337,6 +345,8 @@ git diff --color-words <resto_de_opciones>
 # Mostrar un resumen estadistico de las diferencias
 $ git diff --stat
 ```
+
+<!-- &GIT LOG -->
 
 <h2 style="color: #e09e10;font-weight: 800;">git log</h2>
 Este comando se utiliza para visualizar el historial de commit que has realizado en el tiempo, ademas que te permite agregar opciones de formato para poder visualizar el historial de una forma mas grafica y concisa
@@ -399,6 +409,7 @@ $ git log -n 5
 $ git log --all
 ```
 
+<!-- &GIT CHECKOUT -->
 
 <h2 style="color: #e09e10;font-weight: 800;">git checkout</h2>
 Este comando sirve para ejecutar diferentes acciones, con el se puede revisar commits anteriores, cambiar de rama e incluso crear una nueva rama y el uso mas comun de descartar cambios de un arhivos o archivos
@@ -450,6 +461,8 @@ $ git checkout -- .
 # incluso los archivos que no estan rastreados por git , osea en estado (Untracking)
 ```
 
+<!-- &GIT RESET -->
+
 <h2 style="color: #e09e10;font-weight: 800;">git reset</h2>
 Este comando se utilizar para deshacer cambios, mover ramas y para actualizar la posicion del encabezado de rama HEAD
 
@@ -480,4 +493,128 @@ $ git reset HEAD~3
 $ git reset HEAD~1
 ```
 
+<!-- &GIT TAG -->
+
+<h2 style="color: #e09e10;font-weight: 800;">git tag</h2>
+Este comando se utiliza para crear, listar y administrar etiquetas(Tags).
+Las etiquetas son referencias a puntos especificos de la historia del repositorio (Apunta a un commit)
+Generalmente son usadas para marcar versiones importantes o hitos en el proyecto
+
+<h3>Algunos ejemplos del comando git tag</h3>
+
+```bash
+# Creacion de una etiqueta ligera
+# Estas etiquetas son simplemente un puntero a un commit especifico sin metadatos adicionales
+$ git tag <name-tag> <hash-commit>
+$ git tag v1.0.0 abc123
+
+# Creacion de etiqueta anotada
+# Este tipo de etiqueta es un objeto commpleto en si mismo y contiene información 
+# adicional como el autor, la fecha y el mensaje 
+# opion '-a'
+$ git tag -a <name-tag> <hash-commit>
+$ git tag -a v1.0.0 abc123
+
+# Etiqueta anotada con mensaje en linea
+$ git tag -a <name-tag> <hash-commit> -m <description-tag>
+$ git tag -a nombre-etiqueta -m "Este es el mensaje de la etiqueta"
+
+# Listar todas las etiquetas
+$ git tag
+
+# Visualizar detalles de una etiqueta 
+$ git show <name-tag>
+
+
+# Eliminar una etiqueta en local
+$ git tag -d <name-tag>
+$ git tag --delete <name-tag>
+
+# Enviar etiquetas locales al repsoitorio remoto
+# El siguiente comando envia todas las etiquetas creadas al repositorio remoto
+$ git push origin --tags
+
+# El siguiente envia a una etiqueta en especifico
+$ git tag origin <name-tag>
+
+# Eliminar una etiqueta remota
+$ git push --delete origin <nombre-etiqueta>
+$ git push -d origin <nombre-etiqueta>
+$ git push --delete origin version_beta
+```
+
+<!-- &GIT SHOW -->
+
+<h2 style="color: #e09e10;font-weight: 800;">git show</h2>
+Este comando se utiliza para mostrar información detallada de objetos en el repositorio comot, commits, tags, árboles y blobs, proporciona una vista ampliada y completa de un objeto
+
+<h3>Algunos ejemplos de su uso</h3>
+
+```bash
+# Ver información de un commit
+$ git show <hash-commit>
+
+# Mostrar información de una etiqueta
+$ git show <name-tag>
+# opciones
+* --stat -> Mostrara un resumen de los cambios en los archivos asociados a la etiqueta
+* --summary -> Mostrar un resumen aun mas corto acerca de la etiqueta
+* --name-only -> Muestra solo el nombre de los archivos modificados
+
+# Mostrar cambios realizados en un commit
+$ git show -p <hash-commit>
+$ git show --patch <hash-commit>
+```
+
+<!-- &GIT BRANCH -->
+
+<h2 style="color: #e09e10;font-weight: 800;">git branch</h2>
+Este comando sirve para crear, enumerar, renombrar y eliminar sucursales(Ramas), una rama en git es una linea de desarrollo independiente a tu rama principal del repositorio, esto te permite desarrollar una funcionalidad o corregir algun bug de forma aislada sin comprometer el codigo principal, cuando ya termines la nueva funcionalidad puedes fusionar todos los commits de esa rama con la rama principal, pero para esto no basta solo con el comando git branch, sino que se ayuda con los comandos de git checkout o git switch para cambiar entre las ramas que tengas creadas y el comando git merge para fusionar los cambios
+
+<h3>Algunos usos de git branch</h3>
+
+```bash
+# Listar las ramas locales
+$ git branch  
+$ git branch --list
+
+# Listar las ramas remotas
+$ git branch -a
+
+# Crear nueva rama
+$ git branch <new-branch>
+
+# Renombrar rama 
+$ git branch -m <new-name-branch
+
+# Eliminar una rama (Seguro)
+$ git branch -d <name-branch>
+# El comando anterior es seguro ya que si tienes cambios que no has fusionado 
+# git te advertira que si eliminas la rama perderas esa linea de desarrollo
+
+# Eliminar rama (Forzado)
+$ git branch -D <name-branch>
+# Este comando elimina la rama sin importar 
+# que haya cambios que nos hayas fusionado
+
+# Subir rama local a repositorio remoto
+$ git push <name-remote-repo> <branch-name>
+$ git push origin Feature
+
+# Eliminar rama del repositorio remoto
+$ git push origin --delete <name-branch>
+$ git push origin :<name-branch>
+$ git push origin --delete Feature
+$ git push origin :Feature
+
+# ver el último commit de cada rama, puedes utilizar la opción -v.
+$ git branch -v
+```
+
+
 </div>
+
+
+---
+git switch
+git merge
