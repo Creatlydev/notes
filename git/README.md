@@ -569,7 +569,8 @@ $ git show --patch <hash-commit>
 <!-- &GIT BRANCH -->
 
 <h2 style="color: #e09e10;font-weight: 800;">git branch</h2>
-Este comando sirve para crear, enumerar, renombrar y eliminar sucursales(Ramas), una rama en git es una linea de desarrollo independiente a tu rama principal del repositorio, esto te permite desarrollar una funcionalidad o corregir algun bug de forma aislada sin comprometer el codigo principal, cuando ya termines la nueva funcionalidad puedes fusionar todos los commits de esa rama con la rama principal, pero para esto no basta solo con el comando git branch, sino que se ayuda con los comandos de git checkout o git switch para cambiar entre las ramas que tengas creadas y el comando git merge para fusionar los cambios
+
+Este comando sirve para crear, enumerar, renombrar y eliminar sucursales (Ramas) , una rama en git es una linea de desarrollo independiente a tu rama principal del repositorio, esto te permite desarrollar una funcionalidad o corregir algun bug de forma aislada sin comprometer el codigo principal, cuando ya termines la nueva funcionalidad puedes fusionar todos los commits de esa rama con la rama principal, pero para esto no basta solo con el comando git branch, sino que se ayuda con los comandos de  `git checkout` o  `git switch` para cambiar entre las ramas que tengas creadas y el comando  `git merge` para fusionar los cambios
 
 <h3>Algunos usos de git branch</h3>
 
@@ -611,10 +612,111 @@ $ git push origin :Feature
 $ git branch -v
 ```
 
+<!-- &GIT MERGE -->
+
+<h2 style="color: #e09e10;font-weight: 800;">git merge</h2>
+se utiliza para combinar los cambios de una rama con otra rama activa (generalmente la rama actual). Esto permite integrar los cambios realizados en una rama en otra, lo que es útil para incorporar nuevas características, correcciones de errores o actualizaciones.
+
+<h3>Algunas opciones de git merge</h3>
+
+```bash
+# Fusionar rama especifica con la rama actual
+$ git merge <new-feature>
+# Cuando se realiza un merge y no ocurre ningun conflicto, se crea un commit automatico
+# Puedes desactivar este comportamiento con la opcion  --no-commit
+# Fusionar sin commit automatico
+$ git merge <name-rama> --no-commit
+
+# Para cancelar | abortar un merge en curso utiliza la opcion --abort
+$ git merge --abort
+```
+
+<!-- &GIT SWITCH -->
+
+<h2 style="color: #e09e10;font-weight: 800;">git switch</h2>
+
+El comando `git switch` es una alternativa más simple y segura al uso de los comandos `git checkout` y `git branch` en ciertas situaciones. El comando `git switch` se utiliza para cambiar entre ramas existentes o crear y cambiar a una nueva rama en un solo paso. Es especialmente útil para cambiar de rama sin preocuparse por crear conflictos o modificar accidentalmente archivos en la rama actual.
+
+<h3>Algunas opciones del comando git switch</h3>
+
+```bash
+# Cambiar a una rama existente
+$ git switch nombre-de-la-rama
+
+# Crear y cambiar a una nueva rama
+$ git switch -c nombre-de-la-rama
+```
+
+<!-- &GIT STASH -->
+
+<h2 style="color: #e09e10;font-weight: 800;">git stash</h2>
+
+El comando `git stash` almacena temporalmente (o guarda en un stash) los cambios que hayas efectuado en el código en el que estás trabajando para que puedas trabajar en otra cosa y, más tarde, regresar y volver a aplicar los cambios más tarde.
+
+<h3>Algunas opciones del comando git stash</h3>
+
+```bash
+# Guardar cambios en un stash
+# Esto guardara los cambios no comiteados en un estado 
+# WIP (Work In ´Progress)
+$ git stash
+
+# Se puede contextualizar un poco agregando un mensaje
+# al stash creado con <save>
+$ git stash save 'Add style to our site'
+
+# Ver listado de stashes
+$ git stash list
+
+# Volver a aplicar los cambios de stash
+$ git stash pop
+# Al hacer pop del stash, se eliminan los cambios de este y se 
+# vuelven a aplicar en el código en el que estás trabajando.
+
+# Otra opción es volver a aplicar los cambios en el código en el 
+# que estás trabajando y conservarlos en tu stash mediante el 
+# comando git stash apply:
+$ git stash apply
+# Esto resulta útil si quieres aplicar los mismos cambios de un 
+# stash en varias ramas.
+
+# Almacenar archivos en un stash que esten ignorados o sin 
+# seguimiento
+
+# Si añadimos la opción -u (o --include-untracked), se indica a 
+# git stash que también guarde en el stash los archivos 
+# sin seguimiento
+$ git stash -u
+$ git stash --include-untracked
+
+# También puedes incluir los cambios en los archivos 
+# ignorados utilizando la opción -a (o --all) al ejecutar 
+# el comando git stash.
+$ git stash -a
+$ git stash --all
+
+# De forma predeterminada, git stash pop volverá a aplicar 
+# el último stash creado: stash@{0}. Puedes especificar el 
+# stash que deseas aplicar poniendi su identificadir
+# como ultimo argumento
+$ git stash pop stash@{2}
+# Lo mismo aplica para la opcion apply
+
+# Ver un resumen de un stash
+$ git stash show
+
+# Otra opción es utilizar la opción -p (o --patch) para ver 
+# todas las diferencias de un stash:
+$ git stash show -p
+
+# Si decides que ya no necesitas algún stash en particular, puedes eliminarlo mediante el comando:
+$ git stash drop stash@{1}
+
+# Si lo que deseas es eliminar todos los stashes utiliza:
+$ git stash clear
+
+
+```
 
 </div>
 
-
----
-git switch
-git merge
