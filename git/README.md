@@ -1,9 +1,16 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/
+XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <div align="center" style="font-size: 2rem;font-family: inconsolata;color: limegreen;font-weight: 900;">
     <i class="fa-solid fa-terminal"></i>  COMANDOS DE <i class="fa-brands fa-git-alt" style="color: #e09e10;"></i> GIT
 </div>
 <hr style="background-color: #222222;">
+
+<h2 style="color: #e09e10;font-weight: 800;">¿Qué es GIT?</h2>
+Git es un sistema de control de versiones, que se utiliza para registrar todos los cambios o actualizaciones que va teniendo un proyecto. Se utiliza ampliamente en el area de desarrollo de software, aunque tambien puede ser utilizado en cualquier otro tipo de proyecto.
+<br>
+<br>
+Lo que facilita git es no tener que crear una nueva carpeta para cada nueva verion de tu proyecto, ademas de ofrecerte muchas mas funciones.
 
 <!-- &GIT INIT -->
 <div style="font-family: inconsolata;"> 
@@ -17,10 +24,6 @@ lo que hace es inicializar un nuevo repositorio git
 ```bash
 # Crear un repositorio vacio en el directorio actual
 $ git init
-# Crea un repositorio vacion en el subdirectorio especificado
-# si el directorio no existe crea uno nuevo
-$ git init <directory>
-$ git init appNote
 ```
 
 <!-- &GIT CONFIG -->
@@ -36,7 +39,7 @@ $ git config user.name "Tu Nombre"
 
 # Establece un email al repositorio actual, esta 
 # configuracion solo se aplicara a dicho repositorio
-$ git init user.email "Tu email"
+$ git config user.email "Tu email"
 
 # Establecer nombre a nivel global
 $ git config --global user.name "Tu nombre"
@@ -53,7 +56,7 @@ $ git config --global user.email "samir@gmail.com"
 # Puedes ver la lista de configuracion actual a nivel global de git
 $ git config --global --list
 
-# O bien ver las configuraciones del repositorio actual
+# O bien ver las configuraciones del repositorio actual a nivel local
 $ git config --list
 
 # Estos comandos mostraran las configuraciones actuales, incluyendo tu nombre
@@ -68,7 +71,10 @@ $ git config --global core.editor "vim"
 
 # git config se puede usar para configurar alias de manera global o local
 $ git config --global alias.<nombre-alias> <"comando que se ejecutara">
+# por ejemplo:
 $ git config alias.myalias "push origin main"
+# Ahora que ejecutes git myalias internamnet se ejecutara el comando 
+# "git push origin main"
 
 # Resultados coloreados
 # color.ui es una variable maestra para los colores de git
